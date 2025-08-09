@@ -4,10 +4,13 @@ RUN apt-get update
 
 RUN apt-get install python3-dev build-essential -y
 
-RUN pip install --upgrade pip
-RUN pip install virtualenv && python3 -m virtualenv /opt/venv 
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV VIRTUAL_ENV=/opt/venv
 
-ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install --upgrade pip
+RUN pip install virtualenv && python3 -m virtualenv ${VIRTUAL_ENV}
+
+ENV PATH="${VIRTUAL_ENV}/bin:$PATH"
 
 ADD ./requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
