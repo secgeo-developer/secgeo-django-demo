@@ -23,16 +23,16 @@
         <!--================End Home Banner Area =================-->
         
         <!--================Contact Area =================-->
-        <section class="contact_area p_120">
+ <section class="contact_area p_120">
             <div class="container">
-               <div id="mapBox" class="mapBox"
-                    data-lat="38.429168"
-                    data-lon="33.998206"
-                    data-zoom="16"
-                    data-info="Cumhuriyet Mahallesi 7560 Sokak No:4 B1:26 Daire:8, 68100 Aksaray"
-                    data-mlat="38.429168"
-                    data-mlon="33.998206">
-                </div>
+                    <div id="mapBox" class="mapBox"
+                        data-lat="38.429168"
+                        data-lon="33.998206"
+                        data-zoom="16"
+                        data-info="Cumhuriyet Mahallesi 7560 Sokak No:4 B1:26 Daire:8, 68100 Aksaray"
+                        data-mlat="38.429168"
+                        data-mlon="33.998206">
+                    </div>
 
                 <div class="row">
                     <div class="col-lg-3">
@@ -54,8 +54,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-9">
-                        <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+            <div class="col-lg-9">
+                        <form class="row contact_form" action="{% url "contact-form" %}" method="post" id="contactForm" novalidate="novalidate">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
@@ -82,10 +82,8 @@
         </section>
         <!--================Contact Area =================-->
         
-   
-        
         <!--================Contact Success and Error message Area =================-->
-        <div id="success" class="modal modal-message fade" role="dialog">
+ <div id="success" class="modal modal-message fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -97,11 +95,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+</div>
 
         <!-- Modals error -->
 
-        <div id="error" class="modal modal-message fade" role="dialog">
+<div id="error" class="modal modal-message fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -113,7 +111,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+</div>
         <!--================End Contact Success and Error message Area =================-->
         
         
@@ -122,12 +120,12 @@
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
         <!-- contact js -->
-        <script src="{% static "secapp/js/jquery.form.js" %} "></script>
-        <script src="{% static "secapp/js/jquery.validate.min.js" %} "></script>
-        <script src="{% static "secapp/js/contact.js" %} "></script>
+        <script src="{% static 'secapp/js/jquery.form.js' %}"></script>
+        <script src="{% static 'secapp/js/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'secapp/js/contact.js' %}"></script>
         <!--gmaps Js-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-        <script src="{% static "secapp/js/gmaps.min.js" %} "></script>
-        <script src="{% static "secapp/js/theme.js" %} "></script>
+        <script src="{% static 'secapp/js/gmaps.min.js' %} "></script>
+        <script src="{% static 'secapp/js/theme.js' %} "></script>
         
 {% endblock content %} 
