@@ -7,3 +7,9 @@ def index(request):
 
 def contact(request):
     return render(request, 'secapp/html/contact.html')
+
+def portfolio(request):
+    return render(request,'secapp/html/portfolio.html')
+
+def services(request):
+    return render(request, 'secapp/html/services.html')

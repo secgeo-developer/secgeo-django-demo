@@ -1,13 +1,8 @@
+{% extends "base_.html" %}
 {% load static %}
 
-<!doctype html>
-<html lang="en">
-    {% include "includes/base_head.html" %}
-    <body>
         
-        <!--================Header Menu Area =================-->
-      {% include "includes/base_header.html" %}
-        <!--================Header Menu Area =================-->
+{% block content %}  
         
         <!--================Home Banner Area =================-->
         <section class="banner_area">
@@ -87,11 +82,7 @@
         </section>
         <!--================Contact Area =================-->
         
-        <!--================Footer Area =================-->
- 
-        {% include "includes/base_footer.html" %}
-
-        <!--================End Footer Area =================-->
+   
         
         <!--================Contact Success and Error message Area =================-->
         <div id="success" class="modal modal-message fade" role="dialog">
@@ -127,7 +118,6 @@
         
         
         
-        
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
@@ -139,5 +129,5 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
         <script src="{% static "secapp/js/gmaps.min.js" %} "></script>
         <script src="{% static "secapp/js/theme.js" %} "></script>
-    </body>
-</html>
+        
+{% endblock content %} 
