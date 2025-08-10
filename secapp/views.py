@@ -6,4 +6,4 @@ def index(request):
     return render(request, 'secapp/html/index.html')
 
 def contact(request):
-    return render(request, 'secapp/contact.html')
+    return render(request, 'secapp/html/contact.html')
