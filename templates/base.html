@@ -7,29 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock title %}</title>
 
-    <link rel="stylesheet" href="{% static "app.css" %}"> 
+    <link rel="stylesheet" href="{% static "app.css" %}">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
 
     {% block css_files %}{% endblock css_files %}
-    
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="{% url "starting-page" %}"> Home</a></li>
-        <li><a href=""> Projects</a></li>
-        <li><a href=""> About</a></li>
-        <li><a href=""> Contact</a></li>
-      </ul>
-    </nav>
+  
+    {% include "includes/navbar.html" %}
 
-    <h1>SeçAPP</h1>
-
-    {% block content %}{% endblock content %}
+   
+    <div class="container mt-4">
+       {% block content %}
+        {% endblock content %}
+    </div>
+    
 
     <footer id="main-footer">
       <center>
         <p>&copy; 2025 SeçGEO</p>
       </center>
     </footer>
+
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+
   </body>
 </html>
