@@ -55,8 +55,8 @@
                 Projects
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item {% if request.resolver_match.url_name == '#' %} active {% endif %}" href="#">Action</a></li>
+                <li><a class="dropdown-item {% if request.resolver_match.url_name == '#' %} active {% endif %}" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item" href="#">Something else here</a>
@@ -70,7 +70,7 @@
               <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Pricing</a>
+              <a class="nav-link disabled {% if request.resolver_match.url_name == '#' %} active {% endif %}" aria-disabled="true">Pricing</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
