@@ -166,6 +166,7 @@ dmypy.json
 .pytype/
 
 images
+img
 
 # Cython debug symbols
 cython_debug/
