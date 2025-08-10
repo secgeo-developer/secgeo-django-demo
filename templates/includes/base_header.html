@@ -16,20 +16,20 @@
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item active"><a class="nav-link" href="{% url "starting-page" %}">Home</a></li> 
-								<li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li> 
-								<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li> 
+								<li class="nav-item"><a class="nav-link" href="{% url "aboutus-page" %}">About</a></li> 
+								<li class="nav-item"><a class="nav-link" href="{% url "services-page" %}">Services</a></li> 
 								<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
 									<ul class="dropdown-menu">
 										<li class="nav-item"><a class="nav-link" href="{% url "portfolio-page" %}">Portfolio</a></li>
-										<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+										<li class="nav-item"><a class="nav-link" href="{% url "elements-page" %}">Elements</a></li>
 									</ul>
 								</li> 
 								<li class="nav-item submenu dropdown">
 									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
 									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-										<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+										<li class="nav-item"><a class="nav-link" href="{% url "blog-page" %}">Blog</a></li>
+										<li class="nav-item"><a class="nav-link" href="{% url "single-blog-page" %}">Blog Details</a></li>
 									</ul>
 								</li> 
 								<li class="nav-item"><a class="nav-link" href="{% url "contact-page" %}">Contact</a></li>
