@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, 'secapp/index.html')
+
+def contact(request):
+    return render(request, 'secapp/contact.html')
