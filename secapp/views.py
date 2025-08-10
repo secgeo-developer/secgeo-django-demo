@@ -13,3 +13,9 @@ def portfolio(request):
 
 def services(request):
     return render(request, 'secapp/html/services.html')
+
+def aboutus(request):
+    return render(request, 'secapp/html/about-us.html' )
+
+def elements(request):
+    return render(request, 'secapp/html/elements.html')
