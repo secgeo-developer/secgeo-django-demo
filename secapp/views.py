@@ -1,32 +1,48 @@
-from os import name
-from tkinter import Image
 from django.shortcuts import render
 from secapp.models import GeneralSetting, ImageSetting
 
 # Create your views here.
 
-
-def index(request):
+def mainproject_context(request):
     site_title = GeneralSetting.objects.get(site_name='SeçGEO').parameter
     author = GeneralSetting.objects.get(site_name='base_head_author').parameter
-    keywords = GeneralSetting.objects.get(site_name='base_head_keywords').parameter
-    aboutme = GeneralSetting.objects.get(site_name='base_footer_about_me').parameter
-    address = GeneralSetting.objects.get(site_name='base_banner_address').parameter
-    contact_email = GeneralSetting.objects.get(site_name='base_banner_contact_email').parameter
-    phone_number = GeneralSetting.objects.get(site_name='base_banner_phone_number').parameter
-    birthday = GeneralSetting.objects.get(site_name='base_banner_birthday').parameter
-    job_info = GeneralSetting.objects.get(site_name='base_banner_job_info').parameter
+    keywords = GeneralSetting.objects.get(
+        site_name='base_head_keywords').parameter
+    aboutme = GeneralSetting.objects.get(
+        site_name='base_footer_about_me').parameter
+    address = GeneralSetting.objects.get(
+        site_name='base_banner_address').parameter
+    contact_email = GeneralSetting.objects.get(
+        site_name='base_banner_contact_email').parameter
+    phone_number = GeneralSetting.objects.get(
+        site_name='base_banner_phone_number').parameter
+    birthday = GeneralSetting.objects.get(
+        site_name='base_banner_birthday').parameter
+    job_info = GeneralSetting.objects.get(
+        site_name='base_banner_job_info').parameter
     name = GeneralSetting.objects.get(site_name='base_banner_name').parameter
-    description_1 = GeneralSetting.objects.get(site_name='base_banner_description').parameter
-    description_2 = GeneralSetting.objects.get(site_name='base_head_description').parameter
-    myself = GeneralSetting.objects.get(site_name='index_myself_welcome_area').parameter
+    description_1 = GeneralSetting.objects.get(
+        site_name='base_banner_description').parameter
+    description_2 = GeneralSetting.objects.get(
+        site_name='base_head_description').parameter
+    myself = GeneralSetting.objects.get(
+        site_name='index_myself_welcome_area').parameter
+    base_welcome_area_total_projects = GeneralSetting.objects.get(
+        site_name='base_welcome_area_total_projects').parameter
+    base_welcome_area_total_followers = GeneralSetting.objects.get(
+        site_name='base_welcome_area_total_followers').parameter
+    base_welcome_area_total_volunteers = GeneralSetting.objects.get(
+        site_name='base_welcome_area_total_volunteers').parameter
 
     # Get the index image
-    base_banner_image = ImageSetting.objects.get(name='base_banner_image').image_file
-    base_head_favicon = ImageSetting.objects.get(name='base_head_favicon').image_file
-    base_header_image = ImageSetting.objects.get(name='base_header_image').image_file
-
-    context = {
+    base_banner_image = ImageSetting.objects.get(
+        name='base_banner_image').image_file
+    base_head_favicon = ImageSetting.objects.get(
+        name='base_head_favicon').image_file
+    base_header_image = ImageSetting.objects.get(
+        name='base_header_image').image_file
+    
+    return {
         'site_title': site_title,
         'base_head_author': author,
         'base_head_keywords': keywords,
@@ -43,8 +59,14 @@ def index(request):
         'base_banner_image': base_banner_image,
         'base_head_favicon': base_head_favicon,
         'base_header_image': base_header_image,
+        'base_welcome_area_total_projects': base_welcome_area_total_projects,
+        'base_welcome_area_total_followers': base_welcome_area_total_followers,
+        'base_welcome_area_total_volunteers': base_welcome_area_total_volunteers
     }
-    return render(request, 'secapp/html/index.html', context=context)
+
+
+def index(request):
+    return render(request, 'secapp/html/index.html')
 
 
 def contact(request):
@@ -53,10 +75,6 @@ def contact(request):
 
 def portfolio(request):
     return render(request, 'secapp/html/index.html')
-
-
-def contact(request):
-    return render(request, 'secapp/html/contact.html')
 
 
 def portfolio(request):
