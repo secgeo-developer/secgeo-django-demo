@@ -1,6 +1,7 @@
 from os import name
+from tkinter import Image
 from django.shortcuts import render
-from secapp.models import GeneralSetting
+from secapp.models import GeneralSetting, ImageSetting
 
 # Create your views here.
 
@@ -19,6 +20,12 @@ def index(request):
     description_1 = GeneralSetting.objects.get(site_name='base_banner_description').parameter
     description_2 = GeneralSetting.objects.get(site_name='base_head_description').parameter
     myself = GeneralSetting.objects.get(site_name='index_myself_welcome_area').parameter
+
+    # Get the index image
+    base_banner_image = ImageSetting.objects.get(name='base_banner_image').image_file
+    base_head_favicon = ImageSetting.objects.get(name='base_head_favicon').image_file
+    base_header_image = ImageSetting.objects.get(name='base_header_image').image_file
+
     context = {
         'site_title': site_title,
         'base_head_author': author,
@@ -33,6 +40,9 @@ def index(request):
         'base_banner_description': description_1,
         'base_head_description': description_2,
         'index_myself_welcome_area': myself,
+        'base_banner_image': base_banner_image,
+        'base_head_favicon': base_head_favicon,
+        'base_header_image': base_header_image,
     }
     return render(request, 'secapp/html/index.html', context=context)
 
