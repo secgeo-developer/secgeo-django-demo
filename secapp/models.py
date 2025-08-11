@@ -1,3 +1,4 @@
+from turtle import position
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
@@ -79,4 +80,21 @@ class Experience(AbstractModel):
     class Meta:
         verbose_name = 'Experience'
         verbose_name_plural = 'Experiences'
+        ordering = ['-start_date']
+
+class Education(AbstractModel):
+    school_name = models.CharField(
+        max_length=100, blank=True, verbose_name='Institution Name', help_text="Enter the name of the institution")
+    department = models.CharField(
+        max_length=254, blank=True, verbose_name='Department', help_text="Enter your department")
+    position = models.CharField(
+        max_length=100, blank=True, verbose_name='Position', help_text="Enter your position")
+    start_date = models.DateField(blank=True, null=True, verbose_name='Start Date',
+                                  help_text="Enter the start date of your education")
+    end_date = models.DateField(default=None, blank=True, null=True,
+                                verbose_name='End Date', help_text="Enter the end date of your education")
+
+    class Meta:
+        verbose_name = 'Education'
+        verbose_name_plural = 'Educations'
         ordering = ['-start_date']

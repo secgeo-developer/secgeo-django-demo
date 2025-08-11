@@ -2,7 +2,7 @@ from tkinter import E
 from turtle import up
 from django.contrib import admin
 
-from .models import GeneralSetting, ImageSetting, Skill, Experience
+from .models import GeneralSetting, ImageSetting, Skill, Experience, Education
 
 # Register your models here.
 
@@ -48,4 +48,15 @@ class ExperienceAdmin(admin.ModelAdmin):
 
     class Meta:
         model = Experience
+        fields = '__all__'
+
+
+@admin.register(Education)
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'school_name', 'department',
+                    'position', 'start_date', 'end_date')
+    search_fields = ('school_name', 'department', 'position')
+
+    class Meta:
+        model = Education
         fields = '__all__'

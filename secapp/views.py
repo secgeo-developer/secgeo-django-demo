@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from secapp.models import GeneralSetting, ImageSetting, Skill, Experience
+from secapp.models import Education, GeneralSetting, ImageSetting, Skill, Experience
 
 # Create your views here.
 
@@ -49,6 +49,9 @@ def mainproject_context(request):
     # Experience
     experiences = Experience.objects.all()
 
+    # Education
+    educations = Education.objects.all()
+
     return {
         'site_title': site_title,
         'base_head_author': author,
@@ -70,7 +73,8 @@ def mainproject_context(request):
         'base_welcome_area_total_followers': base_welcome_area_total_followers,
         'base_welcome_area_total_volunteers': base_welcome_area_total_volunteers,
         'skills': skills,
-        'experiences': experiences
+        'experiences': experiences,
+        'educations': educations
     }
 
 
