@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from secapp.models import GeneralSetting, ImageSetting
+from secapp.models import GeneralSetting, ImageSetting, Skill
 
 # Create your views here.
 
@@ -41,7 +41,9 @@ def mainproject_context(request):
         name='base_head_favicon').image_file
     base_header_image = ImageSetting.objects.get(
         name='base_header_image').image_file
-    
+
+    skills = Skill.objects.all().order_by('order')
+
     return {
         'site_title': site_title,
         'base_head_author': author,
@@ -61,7 +63,8 @@ def mainproject_context(request):
         'base_header_image': base_header_image,
         'base_welcome_area_total_projects': base_welcome_area_total_projects,
         'base_welcome_area_total_followers': base_welcome_area_total_followers,
-        'base_welcome_area_total_volunteers': base_welcome_area_total_volunteers
+        'base_welcome_area_total_volunteers': base_welcome_area_total_volunteers,
+        'skills': skills
     }
 
 
