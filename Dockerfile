@@ -1,4 +1,8 @@
-FROM python:3.14-rc-slim
+# Önce varsayılan değeri belirle
+ARG PYTHON_VERSION=3.11-slim-bookworm
+
+# FROM satırında mutlaka resmi imaj ismini yaz
+FROM python:${PYTHON_VERSION}
 
 RUN apt-get update 
 

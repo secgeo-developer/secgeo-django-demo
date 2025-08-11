@@ -7,19 +7,19 @@
 					<div class="banner_content">
 						<div class="media">
 							<div class="d-flex">
-								<img src=" {% static "secapp/img/secgeo_team.jpg" %} " alt="">
+								<img src=" {{ base_banner_image.url }} " alt="">
 							</div>
 							<div class="media-body">
 								<div class="personal_text">
 									<h6>Hello Everybody, i am</h6>
-									<h3>Hamdi Seçilmiş</h3>
-									<h4>Start-up Founder</h4>
-									<p>I am an entrepreneurial engineer developing software projects in the private sector.</p>
+									<h3>{{ base_banner_name }}</h3>
+									<h4>{{ base_banner_job_info }}</h4>
+									<p>{{ base_banner_description }}</p>
 									<ul class="list basic_info">
-										<li><a href="JavaScript:void(0)"><i class="lnr lnr-calendar-full"></i> 30st May, 1980</a></li>
-										<li><a href="tel:+905319947568"><i class="lnr lnr-phone-handset"></i> 90 (531) 994 75 68</a></li>
-										<li><a href="mailto:hamdi.secilmis@gmail.com"><i class="lnr lnr-envelope"></i> secgeo.muhendislik@gmail.com</a></li>
-										<li><a href="https://www.google.com/maps/@38.4292416,33.9985454,18.17z?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"><i class="lnr lnr-home"></i> Aksaray / Türkiye</a></li>
+										<li><a href="JavaScript:void(0)"><i class="lnr lnr-calendar-full"></i> {{ base_banner_birthday }}</a></li>
+										<li><a href="tel:+905319947568"><i class="lnr lnr-phone-handset"></i> {{ base_banner_phone_number }}</a></li>
+										<li><a href="mailto:hamdi.secilmis@gmail.com"><i class="lnr lnr-envelope"></i> {{ base_banner_contact_email }}</a></li>
+										<li><a href="https://www.google.com/maps/@38.4292416,33.9985454,18.17z?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"><i class="lnr lnr-home"></i> {{ base_banner_address }} </a></li>
 									</ul>
 									<ul class="list personal_social">
 										<li><a href="https://www.facebook.com/hamdi.secilmis" target=blank><i class="fa fa-facebook"></i></a></li>
