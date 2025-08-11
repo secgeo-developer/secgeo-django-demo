@@ -6,7 +6,7 @@ FROM python:${PYTHON_VERSION}
 
 RUN apt-get update 
 
-RUN apt-get install python3-dev build-essential -y
+RUN apt-get install python3-tk tk-dev build-essential -y
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV VIRTUAL_ENV=/opt/venv

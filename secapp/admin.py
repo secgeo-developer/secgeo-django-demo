@@ -1,6 +1,7 @@
+from turtle import up
 from django.contrib import admin
 
-from .models import GeneralSetting, ImageSetting
+from .models import GeneralSetting, ImageSetting, Skill
 
 # Register your models here.
 
@@ -21,4 +22,12 @@ class ImageSettingsAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description')
     class Meta:
         model = ImageSetting
+        fields = '__all__'
+
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ('id','name', 'percentage', 'order', 'updated_date','created_date')
+    search_fields = ('name','order','percentage')
+    class Meta:
+        model = Skill
         fields = '__all__'
