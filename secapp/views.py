@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from secapp.models import GeneralSetting, ImageSetting, Skill
+from secapp.models import GeneralSetting, ImageSetting, Skill, Experience
 
 # Create your views here.
 
 def mainproject_context(request):
+    # GeneralSetting
     site_title = GeneralSetting.objects.get(site_name='SeçGEO').parameter
     author = GeneralSetting.objects.get(site_name='base_head_author').parameter
     keywords = GeneralSetting.objects.get(
@@ -34,7 +35,7 @@ def mainproject_context(request):
     base_welcome_area_total_volunteers = GeneralSetting.objects.get(
         site_name='base_welcome_area_total_volunteers').parameter
 
-    # Get the index image
+    # ImageSetting
     base_banner_image = ImageSetting.objects.get(
         name='base_banner_image').image_file
     base_head_favicon = ImageSetting.objects.get(
@@ -42,7 +43,11 @@ def mainproject_context(request):
     base_header_image = ImageSetting.objects.get(
         name='base_header_image').image_file
 
-    skills = Skill.objects.all().order_by('order')
+    # Skill
+    skills = Skill.objects.all()
+
+    # Experience
+    experiences = Experience.objects.all()
 
     return {
         'site_title': site_title,
@@ -64,7 +69,8 @@ def mainproject_context(request):
         'base_welcome_area_total_projects': base_welcome_area_total_projects,
         'base_welcome_area_total_followers': base_welcome_area_total_followers,
         'base_welcome_area_total_volunteers': base_welcome_area_total_volunteers,
-        'skills': skills
+        'skills': skills,
+        'experiences': experiences
     }
 
 
