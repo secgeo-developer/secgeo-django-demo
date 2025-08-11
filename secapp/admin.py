@@ -2,7 +2,7 @@ from tkinter import E
 from turtle import up
 from django.contrib import admin
 
-from .models import GeneralSetting, ImageSetting, Skill, Experience, Education
+from .models import GeneralSetting, ImageSetting, Skill, Experience, Education, SocialMedia
 
 # Register your models here.
 
@@ -59,4 +59,14 @@ class EducationAdmin(admin.ModelAdmin):
 
     class Meta:
         model = Education
+        fields = '__all__'
+
+
+@admin.register(SocialMedia)
+class SocialMediaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'link', 'icon')
+    search_fields = ('link', 'icon')
+
+    class Meta:
+        model = SocialMedia
         fields = '__all__'

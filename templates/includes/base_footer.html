@@ -7,9 +7,7 @@
           <div class="f_title">
             <h3>About Me</h3>
           </div>
-          <p>
-            {{ base_footer_about_me }}
-          </p>
+          <p>{{ base_footer_about_me }}</p>
           <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;
@@ -61,18 +59,18 @@
           </div>
           <p>Let us be social</p>
           <ul class="list">
+            {% for social in social_media %}
+            <li>
+              <a href="{{ social.link }}" target="blank"
+                >{{ social.icon | safe }}</a
+              >
+            </li>
+            {% endfor %}
+            <!--
             <li>
               <a href="#"><i class="fa fa-facebook"></i></a>
             </li>
-            <li>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-dribbble"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-behance"></i></a>
-            </li>
+            -->
           </ul>
         </aside>
       </div>
