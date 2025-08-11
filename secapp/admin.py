@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import GeneralSetting
+from .models import GeneralSetting, ImageSetting
 
 # Register your models here.
 
@@ -11,4 +11,14 @@ class GeneralSettingsAdmin(admin.ModelAdmin):
     #list_editable = ('site_description', 'contact_email', 'phone_number','parameter')
     class Meta:
         model = GeneralSetting
+        fields = '__all__'
+
+
+
+@admin.register(ImageSetting)
+class ImageSettingsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'image_file')
+    search_fields = ('name', 'description')
+    class Meta:
+        model = ImageSetting
         fields = '__all__'
