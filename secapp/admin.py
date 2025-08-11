@@ -1,8 +1,6 @@
-from tkinter import E
-from turtle import up
+from turtle import up, update
 from django.contrib import admin
-
-from .models import GeneralSetting, ImageSetting, Skill, Experience, Education, SocialMedia
+from .models import Document, GeneralSetting, ImageSetting, Skill, Experience, Education, SocialMedia
 
 # Register your models here.
 
@@ -69,4 +67,13 @@ class SocialMediaAdmin(admin.ModelAdmin):
 
     class Meta:
         model = SocialMedia
+        fields = '__all__'
+
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'slug', 'button_text', 'file', 'order', 'created_date', 'updated_date')
+    search_fields = ('slug', 'button_text')
+
+    class Meta:
+        model = Document
         fields = '__all__'

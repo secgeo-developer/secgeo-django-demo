@@ -1,7 +1,9 @@
-from django.shortcuts import render
-from secapp.models import Education, GeneralSetting, ImageSetting, Skill, Experience, SocialMedia
+from webbrowser import get
+from django.shortcuts import render, redirect, get_object_or_404
+from secapp.models import Education, GeneralSetting, ImageSetting, Skill, Experience, SocialMedia, Document
 
 # Create your views here.
+
 
 def mainproject_context(request):
     # GeneralSetting
@@ -55,6 +57,9 @@ def mainproject_context(request):
     # Social Media
     social_media = SocialMedia.objects.all()
 
+    # Document
+    documents = Document.objects.all()
+
     return {
         'site_title': site_title,
         'base_head_author': author,
@@ -78,7 +83,8 @@ def mainproject_context(request):
         'skills': skills,
         'experiences': experiences,
         'educations': educations,
-        'social_media': social_media
+        'social_media': social_media,
+        'documents': documents
     }
 
 
@@ -116,3 +122,13 @@ def blog(request):
 
 def singleBlog(request):
     return render(request, 'secapp/html/single-blog.html')
+
+
+def redirect_urls(request, slug):
+    doc= get_object_or_404(Document, slug=slug)
+    return redirect(doc.file.url)
+   # doc = Document.objects.get(slug=slug)
+   # if doc:
+   #     return redirect(doc.file.url)
+   # else:
+   #     return redirect('index')
