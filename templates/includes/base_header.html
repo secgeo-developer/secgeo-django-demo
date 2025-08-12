@@ -1,6 +1,6 @@
     {% load static %}
     
-    <!--================Header Menu Area =================-->
+        <!--================Header Menu Area =================-->
         <header class="header_area">
             <div class="main_menu">
             	<nav class="navbar navbar-expand-lg navbar-light">
@@ -33,6 +33,15 @@
 									</ul>
 								</li> 
 								<li class="nav-item"><a class="nav-link" href="{% url "contact-page" %}">Contact</a></li>
+								<li class="nav-item submenu dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download</a>
+									<ul class="dropdown-menu">
+										{% for document in documents %}
+											<li class="nav-item"><a class="nav-link" href="{{ document.file.url }}" target="_blank"><i class="fa fa-download" style="margin-right: 5px;"></i> {{ document.slug }}</a></li>
+										{% endfor %}
+									</ul>
+								</li> 
+								
 							</ul>
 						</div> 
 					</div>
@@ -40,3 +49,7 @@
             </div>
         </header>
         <!--================Header Menu Area =================-->
+
+		  <!--================Scripts=================-->
+		{% include "includes/scripts.html" %}
+		  <!--================Scripts=================-->
