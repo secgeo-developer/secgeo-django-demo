@@ -5,45 +5,48 @@ from secapp.models import Education, GeneralSetting, ImageSetting, Skill, Experi
 # Create your views here.
 
 
+def get_general_setting(parameter):
+    try:
+        obj = GeneralSetting.objects.get(site_name=parameter).parameter
+    except:
+        obj = ''
+    return obj
+
+
+def get_image_setting(parameter):
+    try:
+        obj = ImageSetting.objects.get(name=parameter).image_file
+    except:
+        obj = ''
+    return obj
+
+
 def mainproject_context(request):
     # GeneralSetting
-    site_title = GeneralSetting.objects.get(site_name='SeçGEO').parameter
-    author = GeneralSetting.objects.get(site_name='base_head_author').parameter
-    keywords = GeneralSetting.objects.get(
-        site_name='base_head_keywords').parameter
-    aboutme = GeneralSetting.objects.get(
-        site_name='base_footer_about_me').parameter
-    address = GeneralSetting.objects.get(
-        site_name='base_banner_address').parameter
-    contact_email = GeneralSetting.objects.get(
-        site_name='base_banner_contact_email').parameter
-    phone_number = GeneralSetting.objects.get(
-        site_name='base_banner_phone_number').parameter
-    birthday = GeneralSetting.objects.get(
-        site_name='base_banner_birthday').parameter
-    job_info = GeneralSetting.objects.get(
-        site_name='base_banner_job_info').parameter
-    name = GeneralSetting.objects.get(site_name='base_banner_name').parameter
-    description_1 = GeneralSetting.objects.get(
-        site_name='base_banner_description').parameter
-    description_2 = GeneralSetting.objects.get(
-        site_name='base_head_description').parameter
-    myself = GeneralSetting.objects.get(
-        site_name='index_myself_welcome_area').parameter
-    base_welcome_area_total_projects = GeneralSetting.objects.get(
-        site_name='base_welcome_area_total_projects').parameter
-    base_welcome_area_total_followers = GeneralSetting.objects.get(
-        site_name='base_welcome_area_total_followers').parameter
-    base_welcome_area_total_volunteers = GeneralSetting.objects.get(
-        site_name='base_welcome_area_total_volunteers').parameter
+    site_title = get_general_setting('site_title')
+    author = get_general_setting('base_head_author')
+    keywords = get_general_setting('base_head_keywords')
+    aboutme = get_general_setting('base_footer_about_me')
+    address = get_general_setting('base_banner_address')
+    contact_email = get_general_setting('base_banner_contact_email')
+    phone_number = get_general_setting('base_banner_phone_number')
+    birthday = get_general_setting('base_banner_birthday')
+    job_info = get_general_setting('base_banner_job_info')
+    name = get_general_setting('base_banner_name')
+    description_1 = get_general_setting('base_banner_description')
+    description_2 = get_general_setting('base_head_description')
+    myself = get_general_setting('index_myself_welcome_area')
+    base_welcome_area_total_projects = get_general_setting(
+        'base_welcome_area_total_projects')
+    base_welcome_area_total_followers = get_general_setting(
+        'base_welcome_area_total_followers')
+    base_welcome_area_total_volunteers = get_general_setting(
+        'base_welcome_area_total_volunteers')
 
     # ImageSetting
-    base_banner_image = ImageSetting.objects.get(
-        name='base_banner_image').image_file
-    base_head_favicon = ImageSetting.objects.get(
-        name='base_head_favicon').image_file
-    base_header_image = ImageSetting.objects.get(
-        name='base_header_image').image_file
+    base_banner_image = get_image_setting('base_banner_image')
+    base_head_favicon = get_image_setting('base_head_favicon')
+    base_header_image = get_image_setting('base_header_image')
 
     # Skill
     skills = Skill.objects.all()
@@ -121,7 +124,7 @@ def singleBlog(request):
 
 
 def redirect_urls(request, slug):
-    doc= get_object_or_404(Document, slug=slug)
+    doc = get_object_or_404(Document, slug=slug)
     return redirect(doc.file.url)
    # doc = Document.objects.get(slug=slug)
    # if doc:
