@@ -36,6 +36,7 @@ CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS', cast=list)
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'contact',
     'secapp',
     'django.contrib.admin',
@@ -122,15 +123,35 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    #BASE_DIR / "static"
+    BASE_DIR / "static"
 ]
 
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
+if DEBUG:
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    STATIC_URL = '/static/'
+
+    MEDIA_ROOT = BASE_DIR / 'media'
+    MEDIA_URL = '/media/'
+
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+else:
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
+
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+    AWS_DEFAULT_ACL = 'public-read'
+    AWS_S3_BUCKET_PARAMETERS ={
+        'Expires': 'Thu, 01 Dec 2099 00:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+    STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
+    STATIC_ROOT = STATIC_URL
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
