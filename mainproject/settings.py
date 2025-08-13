@@ -126,7 +126,7 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [
-    #BASE_DIR / "static"
+    BASE_DIR / "static"
 ]
 
 if DEBUG:
