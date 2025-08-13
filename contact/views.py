@@ -1,4 +1,3 @@
-import re
 from django.http import JsonResponse
 from django.shortcuts import render
 from contact.models import Message
