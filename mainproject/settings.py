@@ -152,9 +152,9 @@ else:
         'CacheControl': 'max-age=94608000',
     }
 
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    # STATIC_ROOT = BASE_DIR / 'staticfiles'
     STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
-    # STATIC_ROOT = STATIC_URL
+    STATIC_ROOT = STATIC_URL
 
     MEDIA_LOCATION = 'media'
     IMAGE_SETTING_LOCATION = MEDIA_LOCATION + '/images'
