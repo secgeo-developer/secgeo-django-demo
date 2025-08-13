@@ -21,7 +21,7 @@ services:
     depends_on:
       - postgres
     #command: python manage.py runserver 0.0.0.0:8000
-    command: gunicorn mainproject.wsgi:application --bind 0.0.0.0:8000 --timeout 250
+    command: gunicorn mainproject.wsgi:application --workers 17 --bind 0.0.0.0:8000 --timeout 250
 volumes:
    postgresql-data:
    static-data:

@@ -141,3 +141,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 vars().update(env.email_url())
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'Hamdi SEÇİLMİŞ <secgeo.muhendislik@gmail.com>'
+EMAIL_HOST_USER = 'secgeo.muhendislik@gmail.com'
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='MYPASSWORD')
