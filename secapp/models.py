@@ -1,7 +1,7 @@
-from pyexpat import model
+
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-
+from mainproject.custom_storages import DocumentStorage, ImageSettingStorage
 # Create your models here.
 
 
@@ -38,8 +38,10 @@ class ImageSetting(AbstractModel):
                             verbose_name='Image Name', help_text="This is variable of the setting")
     description = models.TextField(
         default='', blank=True, verbose_name='Image Description', help_text="This is variable of the setting")
+    # image_file = models.ImageField(
+    #    default='', verbose_name='Image File', upload_to='images/', help_text="Upload an image file")
     image_file = models.ImageField(
-        default='', verbose_name='Image File', upload_to='images/', help_text="Upload an image file")
+        default='', verbose_name='Image File', storage=ImageSettingStorage(), help_text="Upload an image file")
 
     def __str__(self):
         return self.name
@@ -120,12 +122,15 @@ class SocialMedia(AbstractModel):
 
 class Document(AbstractModel):
     order = models.IntegerField(default=0, blank=True,
-                                 verbose_name='Order', help_text="Enter the order of the document")
+                                verbose_name='Order', help_text="Enter the order of the document")
     slug = models.SlugField(default='', max_length=100, blank=True,
-                             verbose_name='Document Slug', help_text="Enter the slug for the document")
+                            verbose_name='Document Slug', help_text="Enter the slug for the document")
     button_text = models.CharField(default='', max_length=254, blank=True,
-                                    verbose_name='Button Text', help_text="Enter the button text")
-    file = models.FileField(upload_to='documents/', blank=True,
+                                   verbose_name='Button Text', help_text="Enter the button text")
+   # file = models.FileField(upload_to='documents/', blank=True,
+   #                         verbose_name='Document File', help_text="Upload the document file")
+
+    file = models.FileField(storage=DocumentStorage(), blank=True,
                             verbose_name='Document File', help_text="Upload the document file")
 
     def __str__(self):
