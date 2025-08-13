@@ -1,5 +1,5 @@
 # Önce varsayılan değeri belirle
-ARG NGINX_VERSION=1.25.2-alpine
+ARG NGINX_VERSION=1.29.0-alpine-slim
 
 FROM nginx:${NGINX_VERSION}
 
