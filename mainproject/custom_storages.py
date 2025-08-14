@@ -4,18 +4,14 @@ from django.core.files.storage import FileSystemStorage
 
 
 if settings.DEBUG:
-
-    class MediaStorage(S3Boto3Storage):
+    class MediaStorage(FileSystemStorage):
         file_overwrite = False
-        location = settings.MEDIA_LOCATION
         default_acl = 'public-read'
 
-    class DocumentStorage(S3Boto3Storage):
+    class DocumentStorage(FileSystemStorage):
         file_overwrite = False
-        location = settings.DOCUMENT_LOCATION
         default_acl = 'public-read'
 
-    class ImageSettingStorage(S3Boto3Storage):
+    class ImageSettingStorage(FileSystemStorage):
         file_overwrite = False
-        location = settings.IMAGE_SETTING_LOCATION
         default_acl = 'public-read'
