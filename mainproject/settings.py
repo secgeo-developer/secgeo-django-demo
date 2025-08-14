@@ -146,6 +146,7 @@ else:
     DEFAULT_FILE_STORAGE = 'mainproject.custom_storages.MediaStorage'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+    AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_OBJECT_PARAMETERS ={
         'Expires': 'Thu, 01 Dec 2099 00:00:00 GMT',
@@ -153,7 +154,11 @@ else:
     }
 
     # STATIC_ROOT = BASE_DIR / 'staticfiles'
-    STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
+    # STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+
     STATIC_ROOT = STATIC_URL
 
     MEDIA_LOCATION = 'media'
