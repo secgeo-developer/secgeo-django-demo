@@ -125,7 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static"
+    #BASE_DIR / "static"
 ]
 
 if DEBUG:
@@ -153,7 +153,7 @@ else:
         'CacheControl': 'max-age=94608000',
     }
 
-    # STATIC_ROOT = BASE_DIR / 'staticfiles'
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
     # STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
