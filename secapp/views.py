@@ -92,35 +92,30 @@ def mainproject_context(request):
 
 
 def index(request):
-    return render(request, 'secapp/html/index.html')
-
-
-def portfolio(request):
-    return render(request, 'secapp/html/index.html')
-
+    return render(request, 'index.html')
 
 def portfolio(request):
-    return render(request, 'secapp/html/portfolio.html')
+    return render(request, 'portfolio.html')
 
 
 def services(request):
-    return render(request, 'secapp/html/services.html')
+    return render(request, 'services.html')
 
 
 def aboutus(request):
-    return render(request, 'secapp/html/about-us.html')
+    return render(request, 'about-us.html')
 
 
 def elements(request):
-    return render(request, 'secapp/html/elements.html')
+    return render(request, 'elements.html')
 
 
 def blog(request):
-    return render(request, 'secapp/html/blog.html')
+    return render(request, 'blog.html')
 
 
 def singleBlog(request):
-    return render(request, 'secapp/html/single-blog.html')
+    return render(request, 'single-blog.html')
 
 
 def redirect_urls(request, slug):
